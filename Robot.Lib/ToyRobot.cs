@@ -2,23 +2,42 @@
 using Microsoft.VisualBasic;
 using Constants = Robot.Lib.Constants;
 
-namespace Robot.Lib;
-public class ToyRobot
+namespace Robot.Lib
 {
-    
-        // private const int TableWidth = 5;
-        // private const int TableHeight = 5;
-
+    /// <summary>
+    /// Represents a toy robot moving on a square tabletop.
+    /// </summary>
+    public class ToyRobot
+    {
         private int x;
         private int y;
-        public Direction direction; 
-        public bool isPlaced { get;  set; }
 
-    public ToyRobot()
+        /// <summary>
+        /// Gets or sets the direction the robot is facing.
+        /// </summary>
+        public Direction direction { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the robot has been placed on the tabletop.
+        /// </summary>
+        public bool isPlaced { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the ToyRobot class.
+        /// The robot is not placed on the tabletop initially.
+        /// </summary>
+        public ToyRobot()
         {
             isPlaced = false;
         }
 
+        /// <summary>
+        /// Places the robot on the tabletop at the specified position and facing direction.
+        /// </summary>
+        /// <param name="x">The X-coordinate of the position.</param>
+        /// <param name="y">The Y-coordinate of the position.</param>
+        /// <param name="direction">The direction the robot is facing.</param>
+        /// <returns>True if the robot is successfully placed, otherwise false.</returns>
         public bool Place(int x, int y, Direction direction)
         {
             if (x < 0 || x > Constants.TableWidth || y < 0 || y > Constants.TableHeight)
@@ -31,6 +50,9 @@ public class ToyRobot
             return true;
         }
 
+        /// <summary>
+        /// Moves the robot one unit forward in the direction it is currently facing.
+        /// </summary>
         public void Move()
         {
             if (!isPlaced)
@@ -61,18 +83,28 @@ public class ToyRobot
             }
         }
 
+        /// <summary>
+        /// Rotates the robot 90 degrees to the left without changing its position.
+        /// </summary>
         public void Left()
         {
             if (isPlaced)
                 direction = (Direction)(((int)direction + 3) % 4);
         }
 
+        /// <summary>
+        /// Rotates the robot 90 degrees to the right without changing its position.
+        /// </summary>
         public void Right()
         {
             if (isPlaced)
-                direction = (Direction)(((int)direction + 3) % 4);
+                direction = (Direction)(((int)direction + 1) % 4);
         }
 
+        /// <summary>
+        /// Reports the current position and facing direction of the robot.
+        /// </summary>
+        /// <returns>A string representing the robot's position and direction.</returns>
         public string Report()
         {
             if (isPlaced)
@@ -80,7 +112,5 @@ public class ToyRobot
             else
                 return Constants.UnplacedRobot;
         }
-    
-
-
+    }
 }
