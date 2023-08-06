@@ -1,10 +1,13 @@
-﻿using Microsoft.VisualBasic;
+﻿using System.Reflection.Metadata;
+using Microsoft.VisualBasic;
+using Constants = Robot.Lib.Constants;
+
 namespace Robot.Lib;
 public class ToyRobot
 {
     
-        private const int TableWidth = 5;
-        private const int TableHeight = 5;
+        // private const int TableWidth = 5;
+        // private const int TableHeight = 5;
 
         private int x;
         private int y;
@@ -18,7 +21,7 @@ public class ToyRobot
 
         public bool Place(int x, int y, Direction direction)
         {
-            if (x < 0 || x > TableWidth || y < 0 || y > TableHeight)
+            if (x < 0 || x > Constants.TableWidth || y < 0 || y > Constants.TableHeight)
                 return false;
 
             this.x = x;
@@ -51,7 +54,7 @@ public class ToyRobot
                 _ => y
             };
 
-            if (newX >= 0 && newX <= TableWidth && newY >= 0 && newY <= TableHeight)
+            if (newX >= 0 && newX <= Constants.TableWidth && newY >= 0 && newY <= Constants.TableHeight)
             {
                 x = newX;
                 y = newY;

@@ -9,8 +9,7 @@ Console.WriteLine("Available commands: PLACE X,Y,F | MOVE | LEFT | RIGHT | REPOR
 
 while (true)
 {
-    string command = Console.ReadLine().Trim();
-    // Console.WriteLine("Response: " + command);
+    string command = Console.ReadLine().Trim(); 
 
     string[] tokens = command.Split(' ');
 
@@ -21,7 +20,7 @@ while (true)
     else if (tokens.Length == 2 && tokens[0].ToUpper() == "PLACE")
     {
         string[] position = tokens[1].Split(',');
-        if (position.Length == 3 && Enum.TryParse(position[2], out Direction direction))
+        if (position.Length == 3 && Enum.TryParse((position[2]).ToUpper(), out Direction direction))
         {
             int x = int.Parse(position[0]);
             int y = int.Parse(position[1]);
