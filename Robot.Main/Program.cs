@@ -1,9 +1,13 @@
-﻿using Robot.Lib;
+﻿using System.Reflection.Metadata;
+using Microsoft.VisualBasic;
+using Robot.Lib;
+ 
 
 // Create a new instance of the ToyRobot class
 ToyRobot toyRobot = new ToyRobot();
 
 // Display introductory messages for the Toy Robot Simulation
+Console.Clear();
 Console.WriteLine("Toy Robot Simulation");
 Console.WriteLine("Available commands: PLACE X,Y,F | MOVE | LEFT | RIGHT | REPORT");
 
@@ -41,12 +45,12 @@ while (true)
             // If placement fails (e.g., the position is outside the table), display an error message
             if (toyRobot.Place(x, y, direction))
             {
-                Console.WriteLine("Toy robot placed successfully.");
+                Console.WriteLine(Constants.SuccessPlacement);
                 Console.WriteLine(toyRobot.Report());
             }
             else
             {
-                Console.WriteLine("Invalid placement. The robot cannot be placed outside the table.");
+                Console.WriteLine(Constants.InvalidPlacement);
             }
         }
     }
@@ -71,7 +75,7 @@ while (true)
     // Display an error message indicating an invalid command and prompt the user to enter a valid command
     else
     {
-        Console.WriteLine("Invalid command. Please enter a valid command.");
+        Console.WriteLine(Constants.InvalidCommand );
     }
 
 }
