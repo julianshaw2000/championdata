@@ -13,6 +13,7 @@ This is a Console application that can be used to run the application.  To execu
 This is a Console application that inputs a file with simulator commands called
  "Command.txt" to run the application.  To execute the program do the following:
 - Go to the Robot.Command directory
+- Edit the Command.txt file and add the required commands
 - Execute the command: dotnet run
 
 ## Robot.Tests
